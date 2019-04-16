@@ -4,7 +4,7 @@
 
 #include "cFigura.h"
 
-cFigura::cFigura(double x, double y):x_(0),y_(0) {
+cFigura::cFigura(double x, double y):cFizyka() {
 
 }
 

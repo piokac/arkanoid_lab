@@ -17,6 +17,7 @@ void timer_binding(int i);
 class cScena {
     std::vector<cFigura*> figury_;
     int active_id_;
+    cProstokat* pilka_;
 public:
     cScena();
     ~cScena();

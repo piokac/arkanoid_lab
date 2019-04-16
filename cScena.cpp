@@ -7,7 +7,19 @@
 #include <chrono>
 cScena::cScena() : active_id_(0) {
 
-    figury_.push_back(new cProstokat(2, 1, 0, 0));
+
+
+    pilka_ = new cProstokat(0.5, 0.5, 0, 2);
+    pilka_->ustaw_predkosc(3e-4, 50);
+    pilka_->ustaw_fizyka(9.81*1E-6, -90);
+
+    //paletka
+    figury_.push_back(pilka_);
+    figury_.push_back(new cProstokat(4, .5, 0, -2.0));
+    figury_.push_back(new cProstokat(0.5, 4, 2, 0));
+    figury_.push_back(new cProstokat(0.5, 4, -2, 0));
+    //pPaletka = new Prostokat(0, -15, 10, 1, 3);
+
 }
 
 void cScena::resize(int width, int height) {
@@ -31,6 +43,16 @@ void cScena::timer() {
 
     //std::cout<<current_time<<std::endl;
     //std::cout.flush();
+    for(auto itr = figury_.begin()+1; itr!=figury_.end(); ++itr){
+        if (pilka_->kolizja(*(*itr))){
+        //if((*itr)->kolizja(*pilka_)){
+            std::cout<<"kolizja"<<std::endl;
+        }
+
+    }
+    pilka_->aktualizuj(GetTickCount());
+
+
 
     glutPostRedisplay();
     glutTimerFunc(40, timer_binding, 0);
