@@ -38,7 +38,7 @@ protected:
     float alfa_g_;//kierunek wektora grawitacji
 
 public:
-    cFizyka();
+    cFizyka(float x=0, float y=0);
 
     float x() { return float(x_); }
 
