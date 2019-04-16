@@ -16,9 +16,14 @@ unsigned long long GetTickCount()
 #include <math.h>
 
 
-cFizyka::cFizyka(float x, float y):x_(x),y_(y), czas_(0), v_(0), alfa_v_(0), g_(0), alfa_g_(0)
-{
 
+cFizyka::cFizyka()
+{
+    //obiekt staly
+    g_=0.0;
+    alfa_g_=0.0;
+    v_=0.0;
+    alfa_v_=0.0;
     //ustawia domyslna obwiednie obiektu
     granica_.xa=-1.0;
     granica_.ya=-1.0;
